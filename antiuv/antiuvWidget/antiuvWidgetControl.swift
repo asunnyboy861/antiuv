@@ -10,7 +10,7 @@ import SwiftUI
 import WidgetKit
 
 struct antiuvWidgetControl: ControlWidget {
-    static let kind: String = "com.zzoutuo.antiuv.antiuvWidget"
+    static let kind: String = "com.zzsutuo.antiuv.antiuvWidget"
 
     var body: some ControlWidgetConfiguration {
         AppIntentControlConfiguration(
