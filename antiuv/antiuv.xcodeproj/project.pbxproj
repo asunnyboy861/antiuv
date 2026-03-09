@@ -1,0 +1,762 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AE778E92F5F0867003AB48C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE778E82F5F0867003AB48C /* WidgetKit.framework */; };
+		6AE778EB2F5F0867003AB48C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE778EA2F5F0867003AB48C /* SwiftUI.framework */; };
+		6AE778FC2F5F0868003AB48C /* antiuvWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A7683942F5EF2870058048C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A7683852F5EF2860058048C;
+			remoteInfo = antiuv;
+		};
+		6A76839E2F5EF2870058048C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A7683852F5EF2860058048C;
+			remoteInfo = antiuv;
+		};
+		6AE778FA2F5F0868003AB48C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AE778E52F5F0867003AB48C;
+			remoteInfo = antiuvWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6AE779012F5F0868003AB48C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6AE778FC2F5F0868003AB48C /* antiuvWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6A7683862F5EF2860058048C /* antiuv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = antiuv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A7683932F5EF2870058048C /* antiuvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = antiuvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A76839D2F5EF2870058048C /* antiuvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = antiuvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = antiuvWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE778E82F5F0867003AB48C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6AE778EA2F5F0867003AB48C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6AE779072F5F08DD003AB48C /* antiuvWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = antiuvWidgetExtension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6A7683892F5EF2860058048C /* Exceptions for "antiuv" folder in "antiuv" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6A7683852F5EF2860058048C /* antiuv */;
+		};
+		6AE778FD2F5F0868003AB48C /* Exceptions for "antiuvWidget" folder in "antiuvWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6A7683882F5EF2860058048C /* antiuv */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6A7683892F5EF2860058048C /* Exceptions for "antiuv" folder in "antiuv" target */,
+			);
+			path = antiuv;
+			sourceTree = "<group>";
+		};
+		6A7683962F5EF2870058048C /* antiuvTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = antiuvTests;
+			sourceTree = "<group>";
+		};
+		6A7683A02F5EF2870058048C /* antiuvUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = antiuvUITests;
+			sourceTree = "<group>";
+		};
+		6AE778EC2F5F0867003AB48C /* antiuvWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6AE778FD2F5F0868003AB48C /* Exceptions for "antiuvWidget" folder in "antiuvWidgetExtension" target */,
+			);
+			path = antiuvWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A7683832F5EF2860058048C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A7683902F5EF2870058048C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A76839A2F5EF2870058048C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AE778E32F5F0867003AB48C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AE778EB2F5F0867003AB48C /* SwiftUI.framework in Frameworks */,
+				6AE778E92F5F0867003AB48C /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A76837D2F5EF2860058048C = {
+			isa = PBXGroup;
+			children = (
+				6AE779072F5F08DD003AB48C /* antiuvWidgetExtension.entitlements */,
+				6A7683882F5EF2860058048C /* antiuv */,
+				6A7683962F5EF2870058048C /* antiuvTests */,
+				6A7683A02F5EF2870058048C /* antiuvUITests */,
+				6AE778EC2F5F0867003AB48C /* antiuvWidget */,
+				6AE778E72F5F0867003AB48C /* Frameworks */,
+				6A7683872F5EF2860058048C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6A7683872F5EF2860058048C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A7683862F5EF2860058048C /* antiuv.app */,
+				6A7683932F5EF2870058048C /* antiuvTests.xctest */,
+				6A76839D2F5EF2870058048C /* antiuvUITests.xctest */,
+				6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AE778E72F5F0867003AB48C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AE778E82F5F0867003AB48C /* WidgetKit.framework */,
+				6AE778EA2F5F0867003AB48C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6A7683852F5EF2860058048C /* antiuv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A7683A72F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuv" */;
+			buildPhases = (
+				6A7683822F5EF2860058048C /* Sources */,
+				6A7683832F5EF2860058048C /* Frameworks */,
+				6A7683842F5EF2860058048C /* Resources */,
+				6AE779012F5F0868003AB48C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AE778FB2F5F0868003AB48C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6A7683882F5EF2860058048C /* antiuv */,
+			);
+			name = antiuv;
+			packageProductDependencies = (
+			);
+			productName = antiuv;
+			productReference = 6A7683862F5EF2860058048C /* antiuv.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A7683922F5EF2870058048C /* antiuvTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A7683AA2F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuvTests" */;
+			buildPhases = (
+				6A76838F2F5EF2870058048C /* Sources */,
+				6A7683902F5EF2870058048C /* Frameworks */,
+				6A7683912F5EF2870058048C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A7683952F5EF2870058048C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6A7683962F5EF2870058048C /* antiuvTests */,
+			);
+			name = antiuvTests;
+			packageProductDependencies = (
+			);
+			productName = antiuvTests;
+			productReference = 6A7683932F5EF2870058048C /* antiuvTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6A76839C2F5EF2870058048C /* antiuvUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A7683AD2F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuvUITests" */;
+			buildPhases = (
+				6A7683992F5EF2870058048C /* Sources */,
+				6A76839A2F5EF2870058048C /* Frameworks */,
+				6A76839B2F5EF2870058048C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A76839F2F5EF2870058048C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6A7683A02F5EF2870058048C /* antiuvUITests */,
+			);
+			name = antiuvUITests;
+			packageProductDependencies = (
+			);
+			productName = antiuvUITests;
+			productReference = 6A76839D2F5EF2870058048C /* antiuvUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AE778FE2F5F0868003AB48C /* Build configuration list for PBXNativeTarget "antiuvWidgetExtension" */;
+			buildPhases = (
+				6AE778E22F5F0867003AB48C /* Sources */,
+				6AE778E32F5F0867003AB48C /* Frameworks */,
+				6AE778E42F5F0867003AB48C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6AE778EC2F5F0867003AB48C /* antiuvWidget */,
+			);
+			name = antiuvWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = antiuvWidgetExtension;
+			productReference = 6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6A76837E2F5EF2860058048C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					6A7683852F5EF2860058048C = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					6A7683922F5EF2870058048C = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 6A7683852F5EF2860058048C;
+					};
+					6A76839C2F5EF2870058048C = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 6A7683852F5EF2860058048C;
+					};
+					6AE778E52F5F0867003AB48C = {
+						CreatedOnToolsVersion = 16.3;
+					};
+				};
+			};
+			buildConfigurationList = 6A7683812F5EF2860058048C /* Build configuration list for PBXProject "antiuv" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A76837D2F5EF2860058048C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6A7683872F5EF2860058048C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A7683852F5EF2860058048C /* antiuv */,
+				6A7683922F5EF2870058048C /* antiuvTests */,
+				6A76839C2F5EF2870058048C /* antiuvUITests */,
+				6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A7683842F5EF2860058048C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A7683912F5EF2870058048C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A76839B2F5EF2870058048C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AE778E42F5F0867003AB48C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A7683822F5EF2860058048C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A76838F2F5EF2870058048C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A7683992F5EF2870058048C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AE778E22F5F0867003AB48C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A7683952F5EF2870058048C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A7683852F5EF2860058048C /* antiuv */;
+			targetProxy = 6A7683942F5EF2870058048C /* PBXContainerItemProxy */;
+		};
+		6A76839F2F5EF2870058048C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A7683852F5EF2860058048C /* antiuv */;
+			targetProxy = 6A76839E2F5EF2870058048C /* PBXContainerItemProxy */;
+		};
+		6AE778FB2F5F0868003AB48C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */;
+			targetProxy = 6AE778FA2F5F0868003AB48C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6A7683A52F5EF2870058048C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6A7683A62F5EF2870058048C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A7683A82F5EF2870058048C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = antiuv/antiuv.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = antiuv/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A7683A92F5EF2870058048C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = antiuv/antiuv.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = antiuv/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6A7683AB2F5EF2870058048C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/antiuv.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/antiuv";
+			};
+			name = Debug;
+		};
+		6A7683AC2F5EF2870058048C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/antiuv.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/antiuv";
+			};
+			name = Release;
+		};
+		6A7683AE2F5EF2870058048C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = antiuv;
+			};
+			name = Debug;
+		};
+		6A7683AF2F5EF2870058048C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = antiuv;
+			};
+			name = Release;
+		};
+		6AE778FF2F5F0868003AB48C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = antiuvWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = antiuvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = antiuvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6AE779002F5F0868003AB48C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = antiuvWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = antiuvWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = antiuvWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzoutuo.antiuv.antiuvWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A7683812F5EF2860058048C /* Build configuration list for PBXProject "antiuv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7683A52F5EF2870058048C /* Debug */,
+				6A7683A62F5EF2870058048C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A7683A72F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7683A82F5EF2870058048C /* Debug */,
+				6A7683A92F5EF2870058048C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A7683AA2F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuvTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7683AB2F5EF2870058048C /* Debug */,
+				6A7683AC2F5EF2870058048C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A7683AD2F5EF2870058048C /* Build configuration list for PBXNativeTarget "antiuvUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7683AE2F5EF2870058048C /* Debug */,
+				6A7683AF2F5EF2870058048C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AE778FE2F5F0868003AB48C /* Build configuration list for PBXNativeTarget "antiuvWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AE778FF2F5F0868003AB48C /* Debug */,
+				6AE779002F5F0868003AB48C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6A76837E2F5EF2860058048C /* Project object */;
+}
