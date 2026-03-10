@@ -12,7 +12,9 @@ struct DashboardView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 16) {
-                    if viewModel.isLoading {
+                    if viewModel.shouldShowPermissionExplanation {
+                        PermissionExplanationView(viewModel: viewModel)
+                    } else if viewModel.isLoading {
                         LoadingView()
                     } else if let errorMessage = viewModel.errorMessage {
                         ErrorView(message: errorMessage)

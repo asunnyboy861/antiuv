@@ -1,4 +1,5 @@
 import Foundation
+import WidgetKit
 
 /// Data sharing service for App Group
 /// Used to share UV data between main app and Widget
@@ -54,5 +55,35 @@ class DataSharingService {
         userDefaults.removeObject(forKey: "location")
         userDefaults.removeObject(forKey: "lastUpdated")
         userDefaults.synchronize()
+    }
+}
+
+// MARK: - Widget Data Freshness
+extension DataSharingService {
+    /// Check if data is stale
+    /// - Parameter freshnessInterval: Freshness threshold in seconds (default: 5 minutes)
+    /// - Returns: True if data is older than the threshold
+    func isDataStale(freshnessInterval: TimeInterval = 300) -> Bool {
+        guard let lastUpdated = userDefaults.object(forKey: "lastUpdated") as? Date else {
+            return true
+        }
+        return Date().timeIntervalSince(lastUpdated) > freshnessInterval
+    }
+    
+    /// Get last updated time as relative text
+    /// - Returns: Relative time string (e.g., "2 min ago")
+    func lastUpdatedText() -> String {
+        guard let lastUpdated = userDefaults.object(forKey: "lastUpdated") as? Date else {
+            return "Never"
+        }
+        
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: lastUpdated, relativeTo: Date())
+    }
+    
+    /// Trigger Widget refresh
+    func refreshWidget() {
+        WidgetCenter.shared.reloadTimelines(ofKind: "antiuvWidget")
     }
 }

@@ -26,24 +26,29 @@ struct SafetyTimerCard: View {
             HStack {
                 Label("Safety Timer", systemImage: "timer")
                     .font(.headline)
+                    .accessibilityLabel("Safety Timer")
                 
                 Spacer()
                 
                 Text("Reapply in \(reapplyTime) min")
                     .font(.subheadline)
                     .foregroundColor(.orange)
+                    .accessibilityLabel("Reapply sunscreen in \(reapplyTime) minutes")
             }
             
             if viewModel.isRunning {
                 RunningTimerView(viewModel: viewModel)
+                    .accessibilityElement(children: .combine)
             } else {
                 StartTimerButton(action: { showingTimerSetup = true })
+                    .accessibilityLabel("Start safety timer")
             }
         }
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)
+        .accessibilityElement(children: .combine)
         .sheet(isPresented: $showingTimerSetup) {
             TimerSetupView(
                 viewModel: viewModel,

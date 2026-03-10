@@ -3,6 +3,10 @@ import SwiftUI
 struct UVIndexCard: View {
     let uvData: UVData
     
+    private var uvLevel: AccessibilityColors.UVLevel {
+        AccessibilityColors.UVLevel(from: uvData.uvIndex)
+    }
+    
     var body: some View {
         VStack(spacing: 12) {
             HStack {
@@ -10,10 +14,12 @@ struct UVIndexCard: View {
                     Text("UV Index")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                        .accessibilityLabel("UV Index")
                     
                     Text(uvData.displayUVIndex)
                         .font(.system(size: 64, weight: .bold, design: .rounded))
-                        .foregroundColor(uvColor)
+                        .foregroundColor(uvLevel.textColor)
+                        .accessibilityLabel("UV Index value: \(uvData.uvIndex, specifier: "%.1f")")
                 }
                 
                 Spacer()
@@ -21,30 +27,27 @@ struct UVIndexCard: View {
                 VStack(alignment: .trailing, spacing: 4) {
                     Text(uvData.uvLevel)
                         .font(.headline)
-                        .foregroundColor(uvColor)
+                        .foregroundColor(uvLevel.textColor)
+                        .accessibilityLabel("Risk level: \(uvData.uvLevel)")
                     
                     Text(lastUpdatedText)
                         .font(.caption)
                         .foregroundColor(.secondary)
+                        .accessibilityLabel("Last updated: \(lastUpdatedText)")
                 }
             }
             
             UVLevelIndicator(uvIndex: uvData.uvIndex)
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(uvLevel.backgroundColor)
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)
+        .accessibilityElement(children: .combine)
     }
     
     private var uvColor: Color {
-        switch uvData.uvIndex {
-        case 0..<3: return .green
-        case 3..<6: return .yellow
-        case 6..<8: return .orange
-        case 8..<11: return .red
-        default: return .purple
-        }
+        AccessibilityColors.color(for: uvData.uvIndex)
     }
     
     private var lastUpdatedText: String {
@@ -58,11 +61,11 @@ struct UVLevelIndicator: View {
     let uvIndex: Double
     
     private let levels = [
-        (level: "Low", max: 2.9, color: Color.green),
-        (level: "Moderate", max: 5.9, color: Color.yellow),
-        (level: "High", max: 7.9, color: Color.orange),
-        (level: "Very High", max: 10.9, color: Color.red),
-        (level: "Extreme", max: 15.0, color: Color.purple)
+        (level: "Low", max: 2.9, color: AccessibilityColors.UVLevel.low.color),
+        (level: "Moderate", max: 5.9, color: AccessibilityColors.UVLevel.moderate.color),
+        (level: "High", max: 7.9, color: AccessibilityColors.UVLevel.high.color),
+        (level: "Very High", max: 10.9, color: AccessibilityColors.UVLevel.veryHigh.color),
+        (level: "Extreme", max: 15.0, color: AccessibilityColors.UVLevel.extreme.color)
     ]
     
     var body: some View {
@@ -71,6 +74,7 @@ struct UVLevelIndicator: View {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color.gray.opacity(0.2))
                     .frame(height: 8)
+                    .accessibilityHidden(true)
                 
                 HStack(spacing: 0) {
                     ForEach(levels, id: \.level) { level in
@@ -81,26 +85,33 @@ struct UVLevelIndicator: View {
                 }
                 .frame(height: 8)
                 .cornerRadius(4)
+                .accessibilityHidden(true)
                 
                 Circle()
                     .fill(Color.white)
                     .frame(width: 16, height: 16)
                     .shadow(radius: 2)
                     .offset(x: markerPosition(in: geometry.size.width))
+                    .accessibilityHidden(true)
             }
         }
         .frame(height: 30)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("UV level indicator")
+        .accessibilityValue("Current UV index: \(uvIndex, specifier: "%.1f") on a scale from 0 to 11+")
         
         HStack {
             Text("0")
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .accessibilityHidden(true)
             
             Spacer()
             
             Text("11+")
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .accessibilityHidden(true)
         }
     }
     

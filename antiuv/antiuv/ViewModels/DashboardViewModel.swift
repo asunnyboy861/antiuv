@@ -10,6 +10,7 @@ class DashboardViewModel: NSObject, ObservableObject {
     @Published var safeExposureTime: Int = 0
     @Published var reapplyTime: Int = 0
     @Published var uvAdvice: String = ""
+    @Published var shouldShowPermissionExplanation: Bool = false
     
     private let uvDataService = UVDataService()
     private let spfEngine = SPFRecommendationEngine()
@@ -29,7 +30,33 @@ class DashboardViewModel: NSObject, ObservableObject {
     
     private func setupLocationManager() {
         locationManager.delegate = self
+        checkLocationAuthorization()
+    }
+    
+    private func checkLocationAuthorization() {
+        let status = locationManager.authorizationStatus
+        
+        switch status {
+        case .notDetermined:
+            shouldShowPermissionExplanation = true
+        case .authorizedWhenInUse, .authorizedAlways:
+            hasLocationPermission = true
+            startUpdatingLocation()
+        case .denied, .restricted:
+            hasLocationPermission = false
+            errorMessage = "Location access denied. Please enable in Settings."
+        @unknown default:
+            break
+        }
+    }
+    
+    func requestLocationPermission() {
         locationManager.requestWhenInUseAuthorization()
+        shouldShowPermissionExplanation = false
+    }
+    
+    func useManualLocation() {
+        shouldShowPermissionExplanation = false
     }
     
     private func startUpdatingLocation() {
@@ -125,17 +152,6 @@ extension DashboardViewModel: CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
-            hasLocationPermission = true
-            startUpdatingLocation()
-        case .denied, .restricted:
-            hasLocationPermission = false
-            errorMessage = "Location access denied. Please enable in Settings."
-        case .notDetermined:
-            break
-        @unknown default:
-            break
-        }
+        checkLocationAuthorization()
     }
 }

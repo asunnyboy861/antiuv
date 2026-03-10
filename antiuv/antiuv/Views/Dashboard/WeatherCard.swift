@@ -8,35 +8,42 @@ struct WeatherCard: View {
             HStack {
                 Label("Weather Conditions", systemImage: "cloud.sun")
                     .font(.headline)
+                    .accessibilityLabel("Weather Conditions")
                 
                 Spacer()
                 
                 Text(uvData.locationName)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .accessibilityLabel("Location: \(uvData.locationName)")
             }
             
             HStack(spacing: 20) {
                 WeatherInfoItem(
                     icon: "thermometer.sun",
                     label: "Temperature",
-                    value: uvData.displayTemperature
+                    value: uvData.displayTemperatureLocalized
                 )
+                .accessibilityElement(children: .combine)
                 
                 Divider()
                     .frame(height: 40)
+                    .accessibilityHidden(true)
                 
                 WeatherInfoItem(
                     icon: "cloud",
                     label: "Cloud Cover",
                     value: uvData.displayCloudCover
                 )
+                .accessibilityElement(children: .combine)
             }
         }
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Weather conditions")
     }
 }
 
@@ -50,14 +57,17 @@ struct WeatherInfoItem: View {
             Image(systemName: icon)
                 .font(.title2)
                 .foregroundColor(.orange)
+                .accessibilityHidden(true)
             
             Text(value)
                 .font(.title3)
                 .fontWeight(.semibold)
+                .accessibilityLabel("\(label): \(value)")
             
             Text(label)
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .accessibilityHidden(true)
         }
         .frame(maxWidth: .infinity)
     }

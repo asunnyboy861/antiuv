@@ -11,27 +11,32 @@ struct Provider: AppIntentTimelineProvider {
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
+        let dataService = WidgetDataService()
         
-        let currentDate = Date()
-        
-        // 从 App Group 读取主应用的 UV 数据
+        // Read data from App Group
         let userDefaults = UserDefaults(suiteName: "group.com.zzsutuo.antiuv")
         let uvIndex = userDefaults?.double(forKey: "uvIndex") ?? 0.0
         let uvLevel = userDefaults?.string(forKey: "uvLevel") ?? "Unknown"
         let location = userDefaults?.string(forKey: "location") ?? "Loading..."
         let lastUpdated = userDefaults?.object(forKey: "lastUpdated") as? Date ?? Date()
         
+        // Check data freshness using extension methods
+        let isStale = dataService.isDataStale()
+        let lastUpdatedText = dataService.lastUpdatedText()
+        
         let entry = SimpleEntry(
             date: lastUpdated,
             configuration: configuration,
             uvIndex: uvIndex,
             uvLevel: uvLevel,
-            location: location
+            location: location,
+            isStale: isStale,
+            lastUpdatedText: lastUpdatedText
         )
-        entries.append(entry)
         
-        return Timeline(entries: entries, policy: .atEnd)
+        // Set refresh strategy: refresh every 5 minutes
+        let nextUpdate = Calendar.current.date(byAdding: .minute, value: 5, to: Date())!
+        return Timeline(entries: [entry], policy: .after(nextUpdate))
     }
 }
 
@@ -41,13 +46,17 @@ struct SimpleEntry: TimelineEntry {
     let uvIndex: Double
     let uvLevel: String
     let location: String
+    let isStale: Bool
+    let lastUpdatedText: String
     
-    init(date: Date, configuration: ConfigurationAppIntent, uvIndex: Double = 5.5, uvLevel: String = "Moderate", location: String = "Current Location") {
+    init(date: Date, configuration: ConfigurationAppIntent, uvIndex: Double = 5.5, uvLevel: String = "Moderate", location: String = "Current Location", isStale: Bool = false, lastUpdatedText: String = "just now") {
         self.date = date
         self.configuration = configuration
         self.uvIndex = uvIndex
         self.uvLevel = uvLevel
         self.location = location
+        self.isStale = isStale
+        self.lastUpdatedText = lastUpdatedText
     }
 }
 
@@ -69,7 +78,7 @@ struct antiuvWidgetEntryView: View {
             HStack {
                 Image(systemName: "sun.max.fill")
                     .font(.title2)
-                    .foregroundColor(uvColor)
+                    .foregroundColor(entry.isStale ? .gray : uvColor)
                 
                 Text(entry.location)
                     .font(.caption)
@@ -77,15 +86,26 @@ struct antiuvWidgetEntryView: View {
                     .lineLimit(1)
             }
             
-            Text(String(format: "%.1f", entry.uvIndex))
-                .font(.system(size: 36, weight: .bold, design: .rounded))
-                .foregroundColor(uvColor)
+            if entry.isStale {
+                VStack(spacing: 4) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                    Text("Data may be outdated")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                }
+            } else {
+                Text(String(format: "%.1f", entry.uvIndex))
+                    .font(.system(size: 36, weight: .bold, design: .rounded))
+                    .foregroundColor(uvColor)
+                
+                Text(entry.uvLevel)
+                    .font(.headline)
+                    .foregroundColor(uvColor)
+            }
             
-            Text(entry.uvLevel)
-                .font(.headline)
-                .foregroundColor(uvColor)
-            
-            Text("Updated \(entry.date, style: .relative) ago")
+            Text("Updated \(entry.lastUpdatedText)")
                 .font(.caption2)
                 .foregroundColor(.secondary)
         }
