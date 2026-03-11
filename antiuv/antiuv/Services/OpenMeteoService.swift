@@ -1,40 +1,48 @@
 import Foundation
 import CoreLocation
-import WeatherKit
 
-enum WeatherKitServiceError: LocalizedError {
-    case authorizationFailed
-    case dataUnavailable
-    case unknown(Error)
+struct OpenMeteoResponse: Codable {
+    let latitude: Double
+    let longitude: Double
+    let current: CurrentWeather
+    let timezone: String
     
-    var errorDescription: String? {
-        switch self {
-        case .authorizationFailed:
-            return "WeatherKit authorization failed. Check your Apple Developer account."
-        case .dataUnavailable:
-            return "Weather data unavailable for this location."
-        case .unknown(let error):
-            return "WeatherKit error: \(error.localizedDescription)"
-        }
+    struct CurrentWeather: Codable {
+        let time: String
+        let uv_index: Double
+        let temperature_2m: Double
+        let cloud_cover: Double
+        let relative_humidity_2m: Int
+        let wind_speed_10m: Double
+        let weather_code: Int
     }
 }
 
-class WeatherKitService {
-    
-    private let weatherService = WeatherService()
+class OpenMeteoService {
     
     func fetchWeatherData(for location: CLLocation) async throws -> UVData {
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&current=uv_index,temperature_2m,cloud_cover,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto") else {
+            throw WeatherKitServiceError.dataUnavailable
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw WeatherKitServiceError.dataUnavailable
+        }
+        
         do {
-            let weather = try await weatherService.weather(for: location)
-            let currentWeather = weather.currentWeather
+            let openMeteoResponse = try JSONDecoder().decode(OpenMeteoResponse.self, from: data)
             
-            let uvIndex = Double(currentWeather.uvIndex.value)
-            let temperature = Double(currentWeather.temperature.converted(to: .celsius).value)
-            let cloudCover = Double(currentWeather.cloudCover)
-            
-            let weatherCondition = WeatherCondition(rawValue: currentWeather.condition.rawValue) ?? .unknown
-            let humidity = Double(currentWeather.humidity)
-            let windSpeed = Double(currentWeather.wind.speed.converted(to: .milesPerHour).value)
+            let uvIndex = openMeteoResponse.current.uv_index
+            let temperature = openMeteoResponse.current.temperature_2m
+            let cloudCover = openMeteoResponse.current.cloud_cover / 100.0
+            let humidity = Double(openMeteoResponse.current.relative_humidity_2m) / 100.0
+            let windSpeed = openMeteoResponse.current.wind_speed_10m * 0.621371
+            let weatherCondition = mapWeatherCode(openMeteoResponse.current.weather_code)
             
             let locationName = try await reverseGeocode(location: location)
             
@@ -44,14 +52,40 @@ class WeatherKitService {
                 cloudCover: cloudCover,
                 locationName: locationName,
                 timestamp: Date(),
-                dataSource: "WeatherKit",
+                dataSource: "Open-Meteo",
                 weatherCondition: weatherCondition,
                 humidity: humidity,
                 windSpeed: windSpeed
             )
-            
         } catch {
             throw WeatherKitServiceError.unknown(error)
+        }
+    }
+    
+    private func mapWeatherCode(_ code: Int) -> WeatherCondition {
+        switch code {
+        case 0:
+            return .clear
+        case 1:
+            return .mostlyClear
+        case 2:
+            return .partlyCloudy
+        case 3:
+            return .mostlyCloudy
+        case 45, 48:
+            return .foggy
+        case 51, 53, 55, 56, 57:
+            return .rain
+        case 61, 63, 65, 66, 67:
+            return .rain
+        case 71, 73, 75, 77:
+            return .snow
+        case 80, 81, 82, 85, 86:
+            return .rain
+        case 95, 96, 99:
+            return .thunderstorm
+        default:
+            return .unknown
         }
     }
     

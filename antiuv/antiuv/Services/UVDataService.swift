@@ -24,6 +24,8 @@ class UVDataService: ObservableObject {
     @Published var error: UVServiceError?
     
     private let weatherKitService = WeatherKitService()
+    private let openMeteoService = OpenMeteoService()
+    private var shouldFallbackToOpenMeteo = false
     
     func fetchUVIndex(for location: CLLocation) async {
         await MainActor.run {
@@ -31,15 +33,26 @@ class UVDataService: ObservableObject {
             error = nil
         }
         
+        if !shouldFallbackToOpenMeteo {
+            do {
+                let uvData = try await weatherKitService.fetchWeatherData(for: location)
+                await MainActor.run {
+                    self.currentUVData = uvData
+                    self.isLoading = false
+                }
+                return
+            } catch {
+                shouldFallbackToOpenMeteo = true
+            }
+        }
+        
         do {
-            let uvData = try await weatherKitService.fetchWeatherData(for: location)
+            let uvData = try await openMeteoService.fetchWeatherData(for: location)
             await MainActor.run {
                 self.currentUVData = uvData
                 self.isLoading = false
             }
         } catch {
-            print("WeatherKit failed: \(error.localizedDescription)")
-            
             await MainActor.run {
                 self.error = .dataUnavailable
                 self.isLoading = false

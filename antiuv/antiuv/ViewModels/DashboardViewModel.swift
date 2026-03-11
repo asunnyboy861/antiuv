@@ -147,6 +147,7 @@ extension DashboardViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             currentLocation = location
+            print("Received location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
             Task {
                 await fetchUVData()
             }

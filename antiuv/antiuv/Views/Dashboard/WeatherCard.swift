@@ -17,6 +17,10 @@ struct WeatherCard: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .accessibilityLabel("Location: \(uvData.locationName)")
+                    .onAppear {
+                        print("WeatherCard locationName: \(uvData.locationName)")
+                        print("UVData source: \(uvData.dataSource)")
+                    }
             }
             
             HStack(spacing: 16) {
