@@ -7,6 +7,9 @@ struct UVData: Codable, Equatable {
     let locationName: String
     let timestamp: Date
     let dataSource: String
+    let weatherCondition: WeatherCondition
+    let humidity: Double
+    let windSpeed: Double
     
     var uvLevel: String {
         switch uvIndex {
@@ -44,5 +47,13 @@ struct UVData: Codable, Equatable {
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .abbreviated
         return formatter.localizedString(for: timestamp, relativeTo: Date())
+    }
+    
+    var displayHumidity: String {
+        String(format: "%.0f%%", humidity)
+    }
+    
+    var displayWindSpeed: String {
+        String(format: "%.0f mph", windSpeed)
     }
 }

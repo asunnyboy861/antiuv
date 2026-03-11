@@ -1,6 +1,7 @@
 import Foundation
 import CoreLocation
 import Combine
+import UIKit
 
 class DashboardViewModel: NSObject, ObservableObject {
     @Published var uvData: UVData?
@@ -57,6 +58,12 @@ class DashboardViewModel: NSObject, ObservableObject {
     
     func useManualLocation() {
         shouldShowPermissionExplanation = false
+    }
+    
+    func openLocationSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
     }
     
     private func startUpdatingLocation() {
@@ -118,7 +125,6 @@ class DashboardViewModel: NSObject, ObservableObject {
             skinType: userProfile.skinType
         )
         
-        // Save to App Group for Widget
         if let uvData = uvData {
             dataSharingService.saveUVData(
                 uvIndex: uvData.uvIndex,

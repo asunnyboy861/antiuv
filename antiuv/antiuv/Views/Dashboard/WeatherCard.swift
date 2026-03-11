@@ -6,9 +6,10 @@ struct WeatherCard: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack {
-                Label("Weather Conditions", systemImage: "cloud.sun")
+                Label("Weather Conditions", systemImage: uvData.weatherCondition.systemImage)
                     .font(.headline)
-                    .accessibilityLabel("Weather Conditions")
+                    .foregroundColor(uvData.weatherCondition.color)
+                    .accessibilityLabel("Weather Conditions: \(uvData.weatherCondition.displayName)")
                 
                 Spacer()
                 
@@ -18,7 +19,7 @@ struct WeatherCard: View {
                     .accessibilityLabel("Location: \(uvData.locationName)")
             }
             
-            HStack(spacing: 20) {
+            HStack(spacing: 16) {
                 WeatherInfoItem(
                     icon: "thermometer.sun",
                     label: "Temperature",
@@ -31,9 +32,20 @@ struct WeatherCard: View {
                     .accessibilityHidden(true)
                 
                 WeatherInfoItem(
-                    icon: "cloud",
-                    label: "Cloud Cover",
-                    value: uvData.displayCloudCover
+                    icon: "drop.fill",
+                    label: "Humidity",
+                    value: uvData.displayHumidity
+                )
+                .accessibilityElement(children: .combine)
+                
+                Divider()
+                    .frame(height: 40)
+                    .accessibilityHidden(true)
+                
+                WeatherInfoItem(
+                    icon: "wind",
+                    label: "Wind",
+                    value: uvData.displayWindSpeed
                 )
                 .accessibilityElement(children: .combine)
             }
@@ -43,7 +55,7 @@ struct WeatherCard: View {
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Weather conditions")
+        .accessibilityLabel("Weather conditions: \(uvData.weatherCondition.displayName), temperature \(uvData.displayTemperatureLocalized), humidity \(uvData.displayHumidity), wind \(uvData.displayWindSpeed)")
     }
 }
 
@@ -78,9 +90,12 @@ struct WeatherInfoItem: View {
         uvIndex: 7.5,
         temperature: 25.0,
         cloudCover: 0.3,
-        locationName: "Sydney, NSW, Australia",
+        locationName: "Los Angeles, CA, USA",
         timestamp: Date(),
-        dataSource: "WeatherKit"
+        dataSource: "WeatherKit",
+        weatherCondition: .partlyCloudy,
+        humidity: 45.0,
+        windSpeed: 12.0
     ))
     .padding()
 }

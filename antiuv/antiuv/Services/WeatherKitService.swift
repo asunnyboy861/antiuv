@@ -26,10 +26,16 @@ class WeatherKitService {
     func fetchWeatherData(for location: CLLocation) async throws -> UVData {
         do {
             let weather = try await weatherService.weather(for: location)
+            let currentWeather = weather.currentWeather
             
-            let uvIndex = Double(weather.currentWeather.uvIndex.value)
-            let temperature = Double(weather.currentWeather.temperature.converted(to: .celsius).value)
-            let cloudCover = Double(weather.currentWeather.cloudCover)
+            let uvIndex = Double(currentWeather.uvIndex.value)
+            let temperature = Double(currentWeather.temperature.converted(to: .celsius).value)
+            let cloudCover = Double(currentWeather.cloudCover)
+            
+            let weatherCondition = WeatherCondition(rawValue: currentWeather.condition.rawValue) ?? .unknown
+            let humidity = Double(currentWeather.humidity)
+            let windSpeed = Double(currentWeather.wind.speed.converted(to: .milesPerHour).value)
+            
             let locationName = try await reverseGeocode(location: location)
             
             return UVData(
@@ -38,7 +44,10 @@ class WeatherKitService {
                 cloudCover: cloudCover,
                 locationName: locationName,
                 timestamp: Date(),
-                dataSource: "WeatherKit"
+                dataSource: "WeatherKit",
+                weatherCondition: weatherCondition,
+                humidity: humidity,
+                windSpeed: windSpeed
             )
             
         } catch {

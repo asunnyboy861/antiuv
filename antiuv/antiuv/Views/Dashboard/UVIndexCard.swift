@@ -141,9 +141,12 @@ struct UVLevelIndicator: View {
         uvIndex: 7.5,
         temperature: 25.0,
         cloudCover: 0.3,
-        locationName: "Sydney, NSW, Australia",
+        locationName: "Los Angeles, CA, USA",
         timestamp: Date(),
-        dataSource: "WeatherKit"
+        dataSource: "WeatherKit",
+        weatherCondition: .partlyCloudy,
+        humidity: 45.0,
+        windSpeed: 12.0
     ))
     .padding()
 }

@@ -50,7 +50,10 @@ struct TemperatureUnitTests {
             cloudCover: 0.3,
             locationName: "Test",
             timestamp: Date(),
-            dataSource: "Test"
+            dataSource: "Test",
+            weatherCondition: .clear,
+            humidity: 50.0,
+            windSpeed: 10.0
         )
         
         let usLocale = Locale(identifier: "en_US")
@@ -67,7 +70,10 @@ struct TemperatureUnitTests {
             cloudCover: 0.3,
             locationName: "Test",
             timestamp: Date(),
-            dataSource: "Test"
+            dataSource: "Test",
+            weatherCondition: .clear,
+            humidity: 50.0,
+            windSpeed: 10.0
         )
         
         let auLocale = Locale(identifier: "en_AU")
@@ -84,10 +90,12 @@ struct TemperatureUnitTests {
             cloudCover: 0.3,
             locationName: "Los Angeles, CA",
             timestamp: Date(),
-            dataSource: "WeatherKit"
+            dataSource: "WeatherKit",
+            weatherCondition: .clear,
+            humidity: 45.0,
+            windSpeed: 8.0
         )
         
-        // Test that displayTemperatureLocalized returns a valid string
         let display = uvData.displayTemperatureLocalized
         #expect(display.contains("°"))
         #expect(display.contains("F") || display.contains("C"))

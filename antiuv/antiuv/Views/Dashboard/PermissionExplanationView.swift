@@ -28,6 +28,8 @@ struct ValuePropositionCard: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title): \(description)")
     }
 }
 
@@ -39,35 +41,38 @@ struct PermissionExplanationView: View {
             Spacer()
             
             VStack(spacing: 24) {
-                Image(systemName: "sun.max.fill")
+                Image(systemName: "location.fill.viewfinder")
                     .font(.system(size: 60))
                     .foregroundColor(.orange)
+                    .accessibilityHidden(true)
                 
                 Text("Location Access Required")
                     .font(.title)
                     .fontWeight(.bold)
+                    .accessibilityAddTraits(.isHeader)
                 
                 Text("To provide accurate UV data, we need your location")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
+                    .accessibilityLabel("To provide accurate UV data, we need your location")
             }
             
             VStack(spacing: 20) {
                 ValuePropositionCard(
-                    icon: "sun.max.fill",
+                    icon: "location.fill",
                     title: "Accurate UV Data",
                     description: "We use your location to provide precise UV index data for your area."
                 )
                 
                 ValuePropositionCard(
-                    icon: "bell.fill",
+                    icon: "bell.badge.fill",
                     title: "Smart Alerts",
                     description: "Get notified when UV levels are high in your location."
                 )
                 
                 ValuePropositionCard(
-                    icon: "lock.shield.fill",
+                    icon: "shield.checkerboard",
                     title: "Privacy First",
                     description: "Your location is only used for UV data and never shared."
                 )
@@ -86,6 +91,8 @@ struct PermissionExplanationView: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                 }
+                .accessibilityLabel("Enable Location Services")
+                .accessibilityHint("Double tap to grant location permission")
                 
                 Button(action: {
                     viewModel.useManualLocation()
@@ -94,6 +101,8 @@ struct PermissionExplanationView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
+                .accessibilityLabel("Enter Location Manually")
+                .accessibilityHint("Double tap to enter your location manually instead")
             }
             .padding(.horizontal)
             
@@ -101,6 +110,7 @@ struct PermissionExplanationView: View {
         }
         .padding()
         .background(Color(.systemGroupedBackground))
+        .accessibilityElement(children: .contain)
     }
 }
 
