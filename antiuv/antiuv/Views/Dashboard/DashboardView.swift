@@ -5,38 +5,22 @@ struct DashboardView: View {
     @StateObject private var timerViewModel = TimerViewModel()
     @State private var showingProfile = false
     @State private var showingTimer = false
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     private let haptic = HapticFeedbackManager.shared
     
+    var isIPad: Bool {
+        horizontalSizeClass == .regular
+    }
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                VStack(spacing: 16) {
-                    if viewModel.shouldShowPermissionExplanation {
-                        PermissionExplanationView(viewModel: viewModel)
-                    } else if viewModel.isLoading {
-                        LoadingView()
-                    } else if let errorMessage = viewModel.errorMessage {
-                        ErrorView(message: errorMessage)
-                    } else if let uvData = viewModel.uvData {
-                        UVIndexCard(uvData: uvData)
-                            .onTapGesture {
-                                haptic.lightTap()
-                            }
-                        WeatherCard(uvData: uvData)
-                        SafetyTimerCard(
-                            viewModel: timerViewModel,
-                            uvIndex: uvData.uvIndex,
-                            skinType: viewModel.userProfile.skinType,
-                            spfValue: viewModel.userProfile.preferredSPF,
-                            activityLevel: viewModel.userProfile.activityLevel
-                        )
-                        AdviceCard(advice: viewModel.uvAdvice)
-                    } else {
-                        EmptyStateView()
-                    }
+                if isIPad {
+                    iPadLayout
+                } else {
+                    iPhoneLayout
                 }
-                .padding()
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("UV Monitor")
@@ -72,6 +56,91 @@ struct DashboardView: View {
             }
         }
     }
+    
+    @ViewBuilder
+    private var iPhoneLayout: some View {
+        VStack(spacing: 16) {
+            contentCards
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    private var iPadLayout: some View {
+        VStack(spacing: 24) {
+            if viewModel.shouldShowPermissionExplanation {
+                PermissionExplanationView(viewModel: viewModel)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if viewModel.isLoading {
+                LoadingView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let errorMessage = viewModel.errorMessage {
+                ErrorView(message: errorMessage)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let uvData = viewModel.uvData {
+                VStack(spacing: 24) {
+                    HStack(spacing: 20) {
+                        UVIndexCard(uvData: uvData)
+                            .frame(maxWidth: .infinity)
+                            .onTapGesture {
+                                haptic.lightTap()
+                            }
+                        
+                        WeatherCard(uvData: uvData)
+                            .frame(maxWidth: .infinity)
+                        
+                        SafetyTimerCard(
+                            viewModel: timerViewModel,
+                            uvIndex: uvData.uvIndex,
+                            skinType: viewModel.userProfile.skinType,
+                            spfValue: viewModel.userProfile.preferredSPF,
+                            activityLevel: viewModel.userProfile.activityLevel
+                        )
+                        .frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: 1000)
+                    
+                    AdviceCard(advice: viewModel.uvAdvice)
+                        .frame(maxWidth: 1000)
+                }
+                .frame(maxWidth: .infinity)
+            } else {
+                EmptyStateView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    @ViewBuilder
+    private var contentCards: some View {
+        Group {
+            if viewModel.shouldShowPermissionExplanation {
+                PermissionExplanationView(viewModel: viewModel)
+            } else if viewModel.isLoading {
+                LoadingView()
+            } else if let errorMessage = viewModel.errorMessage {
+                ErrorView(message: errorMessage)
+            } else if let uvData = viewModel.uvData {
+                UVIndexCard(uvData: uvData)
+                    .onTapGesture {
+                        haptic.lightTap()
+                    }
+                WeatherCard(uvData: uvData)
+                SafetyTimerCard(
+                    viewModel: timerViewModel,
+                    uvIndex: uvData.uvIndex,
+                    skinType: viewModel.userProfile.skinType,
+                    spfValue: viewModel.userProfile.preferredSPF,
+                    activityLevel: viewModel.userProfile.activityLevel
+                )
+                AdviceCard(advice: viewModel.uvAdvice)
+            } else {
+                EmptyStateView()
+            }
+        }
+    }
 }
 
 struct LoadingView: View {
@@ -83,6 +152,7 @@ struct LoadingView: View {
                 .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, minHeight: 200)
+        .padding()
     }
 }
 
@@ -97,8 +167,10 @@ struct ErrorView: View {
             Text(message)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
+                .frame(maxWidth: 600)
         }
         .frame(maxWidth: .infinity, minHeight: 200)
+        .padding()
     }
 }
 
@@ -112,6 +184,7 @@ struct EmptyStateView: View {
                 .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, minHeight: 200)
+        .padding()
     }
 }
 

@@ -5,6 +5,11 @@ struct EnhancedOnboardingView: View {
     @State private var currentPage = 0
     @State private var showingProfileSetup = false
     @State private var hasCompletedOnboarding = false
+    @State private var showingPrivacyPolicy = false
+    @State private var showingTermsOfService = false
+    
+    private let privacyPolicyURL = URL(string: "https://antiuv-privacy.zzoutuo.com")!
+    private let termsOfServiceURL = URL(string: "https://antiuv-support.zzoutuo.com")!
     
     let pages = [
         OnboardingPage(
@@ -109,6 +114,35 @@ struct EnhancedOnboardingView: View {
                         }
                         .padding(.top, 8)
                     }
+                    
+                    VStack(spacing: 8) {
+                        Text("By continuing, you agree to our:")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        
+                        HStack(spacing: 16) {
+                            Button(action: {
+                                showingTermsOfService = true
+                            }) {
+                                Text("Terms of Service")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                            
+                            Text("•")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            Button(action: {
+                                showingPrivacyPolicy = true
+                            }) {
+                                Text("Privacy Policy")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    }
+                    .padding(.top, 16)
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 20)
@@ -118,6 +152,14 @@ struct EnhancedOnboardingView: View {
             ProfileSetupView(onboardingCompleted: {
                 hasCompletedOnboarding = true
             })
+        }
+        .sheet(isPresented: $showingPrivacyPolicy) {
+            SafariView(url: privacyPolicyURL)
+                .ignoresSafeArea()
+        }
+        .sheet(isPresented: $showingTermsOfService) {
+            SafariView(url: termsOfServiceURL)
+                .ignoresSafeArea()
         }
     }
 }

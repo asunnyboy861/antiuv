@@ -3,9 +3,19 @@ import SwiftUI
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var showingPrivacyPolicy = false
+    @State private var showingSupport = false
+    
+    var isIPad: Bool {
+        horizontalSizeClass == .regular
+    }
+    
+    private let privacyPolicyURL = URL(string: "https://antiuv-privacy.zzoutuo.com")!
+    private let supportURL = URL(string: "https://antiuv-support.zzoutuo.com")!
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section(header: Text("Skin Profile")) {
                     Picker("Skin Type", selection: Binding(
@@ -64,6 +74,45 @@ struct ProfileView: View {
                             step: 1)
                 }
                 
+                Section(header: Text("About")) {
+                    Button(action: {
+                        showingPrivacyPolicy = true
+                    }) {
+                        HStack {
+                            Image(systemName: "lock.shield")
+                                .foregroundColor(.blue)
+                            Text("Privacy Policy")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
+                    Button(action: {
+                        showingSupport = true
+                    }) {
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                                .foregroundColor(.green)
+                            Text("Support & FAQ")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
+                    HStack {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(.orange)
+                        Text("Version")
+                        Spacer()
+                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0")
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
                 Section {
                     Button(action: {
                         viewModel.saveProfile()
@@ -89,6 +138,16 @@ struct ProfileView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingPrivacyPolicy) {
+                SafariView(url: privacyPolicyURL)
+                    .ignoresSafeArea()
+            }
+            .sheet(isPresented: $showingSupport) {
+                SafariView(url: supportURL)
+                    .ignoresSafeArea()
+            }
+            .frame(maxWidth: isIPad ? 600 : .infinity, maxHeight: .infinity)
+            .background(Color(.systemGroupedBackground))
         }
     }
 }

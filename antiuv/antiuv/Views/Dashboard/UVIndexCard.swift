@@ -40,6 +40,7 @@ struct UVIndexCard: View {
             UVLevelIndicator(uvIndex: uvData.uvIndex)
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(uvLevel.backgroundColor)
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 2)

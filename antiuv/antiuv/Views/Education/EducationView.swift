@@ -2,9 +2,14 @@ import SwiftUI
 
 struct EducationView: View {
     @State private var selectedCategory: EducationCategory = .uvIndex
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
+    var isIPad: Bool {
+        horizontalSizeClass == .regular
+    }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) {
                 Picker("Category", selection: $selectedCategory) {
                     ForEach(EducationCategory.allCases) { category in
@@ -13,22 +18,34 @@ struct EducationView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding()
+                .frame(maxWidth: isIPad ? 600 : .infinity)
                 
                 ScrollView {
                     switch selectedCategory {
                     case .uvIndex:
                         UVIndexInfo()
+                            .frame(maxWidth: isIPad ? 800 : .infinity)
+                            .padding(.horizontal, isIPad ? 0 : 16)
                     case .skinCancer:
                         SkinCancerPrevention()
+                            .frame(maxWidth: isIPad ? 800 : .infinity)
+                            .padding(.horizontal, isIPad ? 0 : 16)
                     case .vitaminD:
                         VitaminDInfo()
+                            .frame(maxWidth: isIPad ? 800 : .infinity)
+                            .padding(.horizontal, isIPad ? 0 : 16)
                     case .sunscreen:
                         SunscreenGuide()
+                            .frame(maxWidth: isIPad ? 800 : .infinity)
+                            .padding(.horizontal, isIPad ? 0 : 16)
                     }
                 }
+                .frame(maxWidth: .infinity)
             }
             .navigationTitle("Sun Safety Education")
             .navigationBarTitleDisplayMode(.large)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemGroupedBackground))
         }
     }
 }
@@ -81,7 +98,6 @@ struct UVIndexInfo: View {
                 color: .red
             )
         }
-        .padding()
     }
 }
 
@@ -117,7 +133,6 @@ struct SkinCancerPrevention: View {
                 color: .orange
             )
         }
-        .padding()
     }
 }
 
@@ -150,7 +165,6 @@ struct VitaminDInfo: View {
                 color: .blue
             )
         }
-        .padding()
     }
 }
 
@@ -184,7 +198,6 @@ struct SunscreenGuide: View {
                 color: .purple
             )
         }
-        .padding()
     }
 }
 
@@ -209,8 +222,10 @@ struct InfoCard: View {
                 .font(.body)
                 .foregroundColor(.secondary)
                 .lineSpacing(4)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
