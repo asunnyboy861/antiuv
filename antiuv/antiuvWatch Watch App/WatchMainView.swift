@@ -3,20 +3,6 @@ import SwiftUI
 struct WatchMainView: View {
     @StateObject private var viewModel = WatchUVViewModel()
     
-    var body: some Scene {
-        SceneGroup {
-            WatchContentView(viewModel: viewModel)
-                .sceneKind(.main)
-            
-            WatchComplicationView(viewModel: viewModel)
-                .sceneKind(.complication)
-        }
-    }
-}
-
-struct WatchContentView: View {
-    @ObservedObject var viewModel: WatchUVViewModel
-    
     var body: some View {
         TabView {
             WatchUVIndexView(viewModel: viewModel)
@@ -83,7 +69,6 @@ struct WatchUVIndexView: View {
 
 struct WatchTimerView: View {
     @ObservedObject var viewModel: WatchUVViewModel
-    @State private var showingTimerSetup = false
     
     var body: some View {
         VStack(spacing: 8) {
@@ -149,45 +134,6 @@ struct WatchSettingsView: View {
     }
 }
 
-struct WatchComplicationView: View {
-    @ObservedObject var viewModel: WatchUVViewModel
-    
-    var body: some View {
-        VStack(spacing: 2) {
-            if let uvData = viewModel.uvData {
-                Image(systemName: "sun.max.fill")
-                    .font(.caption2)
-                    .foregroundColor(uvColor(for: uvData.uvIndex))
-                
-                Text(String(format: "%.1f", uvData.uvIndex))
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundColor(uvColor(for: uvData.uvIndex))
-            } else {
-                Image(systemName: "sun.max")
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                
-                Text("--")
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundColor(.gray)
-            }
-        }
-        .onAppear {
-            viewModel.fetchUVData()
-        }
-    }
-    
-    private func uvColor(for index: Double) -> Color {
-        switch index {
-        case 0..<3: return .green
-        case 3..<6: return .yellow
-        case 6..<8: return .orange
-        case 8..<11: return .red
-        default: return .purple
-        }
-    }
-}
-
 #Preview {
-    WatchContentView(viewModel: WatchUVViewModel())
+    WatchMainView()
 }

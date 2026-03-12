@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import WatchConnectivity
+import WatchKit
 
 class WatchUVViewModel: ObservableObject {
     @Published var uvData: WatchUVData?

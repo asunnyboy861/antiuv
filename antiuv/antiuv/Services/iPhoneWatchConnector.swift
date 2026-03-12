@@ -50,8 +50,10 @@ class iPhoneWatchConnector: NSObject, ObservableObject, WCSessionDelegate {
             "timestamp": data.timestamp.timeIntervalSince1970
         ]
         
-        userDefaults?.set(watchData, forKey: "cachedUVData")
-        userDefaults?.synchronize()
+        if let jsonData = try? JSONSerialization.data(withJSONObject: watchData) {
+            userDefaults?.set(jsonData, forKey: "cachedUVData")
+            userDefaults?.synchronize()
+        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
