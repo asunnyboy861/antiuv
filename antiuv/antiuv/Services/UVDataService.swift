@@ -33,10 +33,10 @@ struct CachedUVData: Codable {
         return Date().timeIntervalSince(timestamp) < cacheValidityDuration
     }
     
-    var isNearLocation: (Double, Double) -> Bool = { lat, lon in
+    func isNearLocation(latitude lat: Double, longitude lon: Double) -> Bool {
         let threshold: Double = 0.01
-        return abs(self.location.latitude - lat) < threshold &&
-               abs(self.location.longitude - lon) < threshold
+        return abs(location.latitude - lat) < threshold &&
+               abs(location.longitude - lon) < threshold
     }
 }
 
@@ -138,8 +138,8 @@ class UVDataService: ObservableObject {
         }
         
         let isNearLocation = cachedData.isNearLocation(
-            location.coordinate.latitude,
-            location.coordinate.longitude
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude
         )
         
         if !isNearLocation {
