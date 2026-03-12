@@ -4,7 +4,7 @@ struct ContactSupportView: View {
     @Environment(\.dismiss) var dismiss
     @State private var name = ""
     @State private var email = ""
-    @State private var selectedSubject = "功能建议"
+    @State private var selectedSubject = "Feature Request"
     @State private var customSubject = ""
     @State private var message = ""
     @State private var isSubmitting = false
@@ -18,23 +18,23 @@ struct ContactSupportView: View {
     }
     
     private let subjects = [
-        "功能建议",
-        "Bug 反馈",
-        "使用问题",
-        "性能问题",
-        "界面优化",
-        "其他"
+        "Feature Request",
+        "Bug Report",
+        "Usage Question",
+        "Performance Issue",
+        "UI Improvement",
+        "Other"
     ]
     
     private var finalSubject: String {
-        selectedSubject == "其他" ? customSubject : selectedSubject
+        selectedSubject == "Other" ? customSubject : selectedSubject
     }
     
     private var isValid: Bool {
         !name.isEmpty &&
         !email.isEmpty &&
         email.contains("@") &&
-        (!selectedSubject.isEmpty && (selectedSubject != "其他" || !customSubject.isEmpty)) &&
+        (!selectedSubject.isEmpty && (selectedSubject != "Other" || !customSubject.isEmpty)) &&
         !message.isEmpty
     }
     
@@ -59,14 +59,15 @@ struct ContactSupportView: View {
                     }
                     .pickerStyle(.menu)
                     
-                    if selectedSubject == "其他" {
+                    if selectedSubject == "Other" {
                         TextField("Custom Subject", text: $customSubject)
                     }
                 }
                 
                 Section(header: Text("Message")) {
                     TextEditor(text: $message)
-                        .frame(minHeight: 150)
+                        .frame(minHeight: 150, maxHeight: .infinity)
+                        .fixedSize(horizontal: false, vertical: true)
                         .overlay(
                             Group {
                                 if message.isEmpty {
@@ -117,6 +118,11 @@ struct ContactSupportView: View {
                         dismiss()
                     }
                 }
+                
+                // Empty keyboard toolbar to fix constraint conflicts
+                ToolbarItemGroup(placement: .keyboard) {
+                    EmptyView()
+                }
             }
             .frame(maxWidth: isIPad ? 600 : .infinity, maxHeight: .infinity)
             .background(Color(.systemGroupedBackground))
@@ -138,22 +144,18 @@ struct ContactSupportView: View {
         
         Task {
             do {
-                let id = try await FeedbackService.shared.submitFeedbackAsync(
+                let _ = try await FeedbackService.shared.submitFeedbackAsync(
                     name: name,
                     email: email,
                     subject: finalSubject,
                     message: message
                 )
                 
-                await MainActor.run {
-                    isSubmitting = false
-                    showSuccess = true
-                }
+                isSubmitting = false
+                showSuccess = true
             } catch {
-                await MainActor.run {
-                    isSubmitting = false
-                    errorMessage = error.localizedDescription
-                }
+                isSubmitting = false
+                errorMessage = error.localizedDescription
             }
         }
     }

@@ -23,6 +23,7 @@ class FeedbackService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 15 // 15 second timeout
         
         let body: [String: Any] = [
             "name": name,
@@ -75,15 +76,37 @@ class FeedbackService {
         subject: String,
         message: String
     ) async throws -> Int {
-        return try await withCheckedThrowingContinuation { continuation in
-            submitFeedback(name: name, email: email, subject: subject, message: message) { result in
-                switch result {
-                case .success(let id):
-                    continuation.resume(returning: id)
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
+        guard let url = URL(string: "\(workerURL)/api/feedback") else {
+            throw FeedbackError.invalidURL
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 15 // 15 second timeout
+        
+        let body: [String: Any] = [
+            "name": name,
+            "email": email,
+            "subject": subject,
+            "message": message,
+            "app_name": appName
+        ]
+        
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FeedbackError.invalidResponse
+        }
+        
+        if httpResponse.statusCode == 200 {
+            let result = try JSONDecoder().decode(FeedbackResponse.self, from: data)
+            return result.id
+        } else {
+            let errorResponse = try JSONDecoder().decode(FeedbackErrorResponse.self, from: data)
+            throw FeedbackError.serverError(errorResponse.error)
         }
     }
 }
