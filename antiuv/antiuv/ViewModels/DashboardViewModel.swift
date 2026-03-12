@@ -100,6 +100,8 @@ class DashboardViewModel: NSObject, ObservableObject {
         }
         
         await uvDataService.fetchUVIndex(for: location)
+        
+        BackgroundTasksService.shared.scheduleAppRefresh()
     }
     
     func refresh() async {
