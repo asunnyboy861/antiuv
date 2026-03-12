@@ -17,6 +17,7 @@ class DashboardViewModel: NSObject, ObservableObject {
     private let spfEngine = SPFRecommendationEngine()
     private let locationManager = CLLocationManager()
     private let dataSharingService = DataSharingService.shared
+    private let watchConnector = iPhoneWatchConnector.shared
     private var cancellables = Set<AnyCancellable>()
     
     var currentLocation: CLLocation?
@@ -100,6 +101,11 @@ class DashboardViewModel: NSObject, ObservableObject {
         }
         
         await uvDataService.fetchUVIndex(for: location)
+        
+        if let uvData = uvDataService.currentUVData {
+            watchConnector.uvData = uvData
+            watchConnector.sendUVDataToWatch(uvData)
+        }
         
         BackgroundTasksService.shared.scheduleAppRefresh()
     }

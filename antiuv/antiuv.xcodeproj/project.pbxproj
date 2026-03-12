@@ -27,6 +27,20 @@
 			remoteGlobalIDString = 6A7683852F5EF2860058048C;
 			remoteInfo = antiuv;
 		};
+		6A9576E02F625CC000698194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A9576D22F625CBF00698194;
+			remoteInfo = "antiuvWatch Watch App";
+		};
+		6A9576EA2F625CC000698194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A9576D22F625CBF00698194;
+			remoteInfo = "antiuvWatch Watch App";
+		};
 		6AE778FA2F5F0868003AB48C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6A76837E2F5EF2860058048C /* Project object */;
@@ -54,6 +68,9 @@
 		6A7683862F5EF2860058048C /* antiuv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = antiuv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7683932F5EF2870058048C /* antiuvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = antiuvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A76839D2F5EF2870058048C /* antiuvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = antiuvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9576D32F625CBF00698194 /* antiuvWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "antiuvWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9576DF2F625CC000698194 /* antiuvWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "antiuvWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9576E92F625CC000698194 /* antiuvWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "antiuvWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = antiuvWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE778E82F5F0867003AB48C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6AE778EA2F5F0867003AB48C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -96,6 +113,36 @@
 			path = antiuvUITests;
 			sourceTree = "<group>";
 		};
+		6A95769F2F625B9600698194 /* antiuvWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch App";
+			sourceTree = "<group>";
+		};
+		6A9576AD2F625B9800698194 /* antiuvWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		6A9576B72F625B9800698194 /* antiuvWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		6A9576D42F625CBF00698194 /* antiuvWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch App";
+			sourceTree = "<group>";
+		};
+		6A9576E22F625CC000698194 /* antiuvWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		6A9576EC2F625CC000698194 /* antiuvWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "antiuvWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
 		6AE778EC2F5F0867003AB48C /* antiuvWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -128,6 +175,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A9576D02F625CBF00698194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576DC2F625CC000698194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576E62F625CC000698194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6AE778E32F5F0867003AB48C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +216,12 @@
 				6A7683962F5EF2870058048C /* antiuvTests */,
 				6A7683A02F5EF2870058048C /* antiuvUITests */,
 				6AE778EC2F5F0867003AB48C /* antiuvWidget */,
+				6A95769F2F625B9600698194 /* antiuvWatch Watch App */,
+				6A9576AD2F625B9800698194 /* antiuvWatch Watch AppTests */,
+				6A9576B72F625B9800698194 /* antiuvWatch Watch AppUITests */,
+				6A9576D42F625CBF00698194 /* antiuvWatch Watch App */,
+				6A9576E22F625CC000698194 /* antiuvWatch Watch AppTests */,
+				6A9576EC2F625CC000698194 /* antiuvWatch Watch AppUITests */,
 				6AE778E72F5F0867003AB48C /* Frameworks */,
 				6A7683872F5EF2860058048C /* Products */,
 			);
@@ -160,6 +234,9 @@
 				6A7683932F5EF2870058048C /* antiuvTests.xctest */,
 				6A76839D2F5EF2870058048C /* antiuvUITests.xctest */,
 				6AE778E62F5F0867003AB48C /* antiuvWidgetExtension.appex */,
+				6A9576D32F625CBF00698194 /* antiuvWatch Watch App.app */,
+				6A9576DF2F625CC000698194 /* antiuvWatch Watch AppTests.xctest */,
+				6A9576E92F625CC000698194 /* antiuvWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +323,74 @@
 			productReference = 6A76839D2F5EF2870058048C /* antiuvUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		6A9576D22F625CBF00698194 /* antiuvWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A9576F12F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch App" */;
+			buildPhases = (
+				6A9576CF2F625CBF00698194 /* Sources */,
+				6A9576D02F625CBF00698194 /* Frameworks */,
+				6A9576D12F625CBF00698194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6A9576D42F625CBF00698194 /* antiuvWatch Watch App */,
+			);
+			name = "antiuvWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "antiuvWatch Watch App";
+			productReference = 6A9576D32F625CBF00698194 /* antiuvWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A9576DE2F625CC000698194 /* antiuvWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A9576F42F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch AppTests" */;
+			buildPhases = (
+				6A9576DB2F625CC000698194 /* Sources */,
+				6A9576DC2F625CC000698194 /* Frameworks */,
+				6A9576DD2F625CC000698194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A9576E12F625CC000698194 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6A9576E22F625CC000698194 /* antiuvWatch Watch AppTests */,
+			);
+			name = "antiuvWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "antiuvWatch Watch AppTests";
+			productReference = 6A9576DF2F625CC000698194 /* antiuvWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6A9576E82F625CC000698194 /* antiuvWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A9576F72F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch AppUITests" */;
+			buildPhases = (
+				6A9576E52F625CC000698194 /* Sources */,
+				6A9576E62F625CC000698194 /* Frameworks */,
+				6A9576E72F625CC000698194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A9576EB2F625CC000698194 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6A9576EC2F625CC000698194 /* antiuvWatch Watch AppUITests */,
+			);
+			name = "antiuvWatch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "antiuvWatch Watch AppUITests";
+			productReference = 6A9576E92F625CC000698194 /* antiuvWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AE778FE2F5F0868003AB48C /* Build configuration list for PBXNativeTarget "antiuvWidgetExtension" */;
@@ -289,6 +434,17 @@
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = 6A7683852F5EF2860058048C;
 					};
+					6A9576D22F625CBF00698194 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					6A9576DE2F625CC000698194 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 6A9576D22F625CBF00698194;
+					};
+					6A9576E82F625CC000698194 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 6A9576D22F625CBF00698194;
+					};
 					6AE778E52F5F0867003AB48C = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -312,6 +468,9 @@
 				6A7683922F5EF2870058048C /* antiuvTests */,
 				6A76839C2F5EF2870058048C /* antiuvUITests */,
 				6AE778E52F5F0867003AB48C /* antiuvWidgetExtension */,
+				6A9576D22F625CBF00698194 /* antiuvWatch Watch App */,
+				6A9576DE2F625CC000698194 /* antiuvWatch Watch AppTests */,
+				6A9576E82F625CC000698194 /* antiuvWatch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -332,6 +491,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6A76839B2F5EF2870058048C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576D12F625CBF00698194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576DD2F625CC000698194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576E72F625CC000698194 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,6 +549,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A9576CF2F625CBF00698194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576DB2F625CC000698194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9576E52F625CC000698194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6AE778E22F5F0867003AB48C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +589,16 @@
 			isa = PBXTargetDependency;
 			target = 6A7683852F5EF2860058048C /* antiuv */;
 			targetProxy = 6A76839E2F5EF2870058048C /* PBXContainerItemProxy */;
+		};
+		6A9576E12F625CC000698194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A9576D22F625CBF00698194 /* antiuvWatch Watch App */;
+			targetProxy = 6A9576E02F625CC000698194 /* PBXContainerItemProxy */;
+		};
+		6A9576EB2F625CC000698194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A9576D22F625CBF00698194 /* antiuvWatch Watch App */;
+			targetProxy = 6A9576EA2F625CC000698194 /* PBXContainerItemProxy */;
 		};
 		6AE778FB2F5F0868003AB48C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -652,6 +863,144 @@
 			};
 			name = Release;
 		};
+		6A9576F22F625CC000698194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "antiuvWatch Watch App/antiuvWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = antiuvWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzsutuo.antiuv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		6A9576F32F625CC000698194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "antiuvWatch Watch App/antiuvWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = antiuvWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzsutuo.antiuv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		6A9576F52F625CC000698194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zzoutuo.safeparents.antiuvWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/antiuvWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/antiuvWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		6A9576F62F625CC000698194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zzoutuo.safeparents.antiuvWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/antiuvWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/antiuvWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		6A9576F82F625CC000698194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zzoutuo.safeparents.antiuvWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "antiuvWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		6A9576F92F625CC000698194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP4TN5PTS3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zzoutuo.safeparents.antiuvWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "antiuvWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 		6AE778FF2F5F0868003AB48C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -743,6 +1092,33 @@
 			buildConfigurations = (
 				6A7683AE2F5EF2870058048C /* Debug */,
 				6A7683AF2F5EF2870058048C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A9576F12F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A9576F22F625CC000698194 /* Debug */,
+				6A9576F32F625CC000698194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A9576F42F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A9576F52F625CC000698194 /* Debug */,
+				6A9576F62F625CC000698194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A9576F72F625CC000698194 /* Build configuration list for PBXNativeTarget "antiuvWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A9576F82F625CC000698194 /* Debug */,
+				6A9576F92F625CC000698194 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
