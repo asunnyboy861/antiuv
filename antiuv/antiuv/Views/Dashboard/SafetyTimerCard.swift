@@ -132,12 +132,17 @@ struct TimerSetupView: View {
     let activityLevel: ActivityLevel
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var selectedDuration: Int = 30
     
     private let durations = [15, 30, 45, 60, 90, 120]
     
+    var isIPad: Bool {
+        horizontalSizeClass == .regular
+    }
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 24) {
                 Text("Select Timer Duration")
                     .font(.headline)
@@ -157,10 +162,13 @@ struct TimerSetupView: View {
                         }
                     }
                 }
+                .frame(maxWidth: isIPad ? 400 : .infinity)
                 
                 Spacer()
             }
             .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Set Timer")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

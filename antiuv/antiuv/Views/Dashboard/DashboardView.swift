@@ -5,6 +5,7 @@ struct DashboardView: View {
     @StateObject private var timerViewModel = TimerViewModel()
     @State private var showingProfile = false
     @State private var showingTimer = false
+    @State private var showingExposureLog = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     private let haptic = HapticFeedbackManager.shared
@@ -26,12 +27,22 @@ struct DashboardView: View {
             .navigationTitle("UV Monitor")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { 
-                        haptic.lightTap()
-                        showingProfile = true 
-                    }) {
-                        Image(systemName: "person.circle")
-                            .font(.title2)
+                    HStack(spacing: 16) {
+                        Button(action: { 
+                            haptic.lightTap()
+                            showingExposureLog = true 
+                        }) {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .font(.title2)
+                        }
+                        
+                        Button(action: { 
+                            haptic.lightTap()
+                            showingProfile = true 
+                        }) {
+                            Image(systemName: "person.circle")
+                                .font(.title2)
+                        }
                     }
                 }
                 
@@ -48,6 +59,9 @@ struct DashboardView: View {
             }
             .sheet(isPresented: $showingProfile) {
                 ProfileView()
+            }
+            .sheet(isPresented: $showingExposureLog) {
+                ExposureLogView()
             }
         }
         .onAppear {

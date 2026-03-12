@@ -11,6 +11,10 @@
 	<string>AntiUV needs your location to provide accurate UV index data and personalized sun safety recommendations for your area.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>AntiUV can monitor UV levels in your location throughout the day and send timely reminders to reapply sunscreen, even when the app is running in the background.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>AntiUV needs access to your health data to track your UV exposure history and provide personalized sun safety recommendations based on your skin type and previous sun exposure patterns.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>AntiUV will save your UV exposure records to the Health app so you can monitor your sun exposure over time and maintain a complete health history.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

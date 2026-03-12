@@ -90,7 +90,7 @@ class TimerViewModel: ObservableObject {
         stopTimer()
         
         if let session = timerSession {
-            timerSession = ExposureSession(
+            let completedSession = ExposureSession(
                 id: session.id,
                 startTime: session.startTime,
                 endTime: Date(),
@@ -102,6 +102,10 @@ class TimerViewModel: ObservableObject {
                 actualDuration: totalTime,
                 completed: true
             )
+            
+            timerSession = completedSession
+            
+            CoreDataStack.shared.addExposureSession(session: completedSession)
         }
         
         NotificationCenter.default.post(
