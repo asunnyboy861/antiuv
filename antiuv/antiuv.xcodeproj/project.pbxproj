@@ -741,6 +741,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = antiuv/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SunSense Pro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -772,6 +773,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = antiuv/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SunSense Pro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1012,7 +1014,7 @@
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = antiuvWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = antiuvWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "SunSense Pro Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1040,7 +1042,7 @@
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = antiuvWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = antiuvWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "SunSense Pro Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
