@@ -6,6 +6,7 @@ struct ProfileView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var showingPrivacyPolicy = false
     @State private var showingSupport = false
+    @State private var showingContactSupport = false
     
     var isIPad: Bool {
         horizontalSizeClass == .regular
@@ -103,6 +104,20 @@ struct ProfileView: View {
                         }
                     }
                     
+                    Button(action: {
+                        showingContactSupport = true
+                    }) {
+                        HStack {
+                            Image(systemName: "envelope")
+                                .foregroundColor(.orange)
+                            Text("Contact Support")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(.orange)
@@ -145,6 +160,9 @@ struct ProfileView: View {
             .sheet(isPresented: $showingSupport) {
                 SafariView(url: supportURL)
                     .ignoresSafeArea()
+            }
+            .sheet(isPresented: $showingContactSupport) {
+                ContactSupportView()
             }
             .frame(maxWidth: isIPad ? 600 : .infinity, maxHeight: .infinity)
             .background(Color(.systemGroupedBackground))
